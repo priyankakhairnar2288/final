@@ -1,3 +1,10 @@
+# Steps to start application
+- git clone all code
+- run "npm install -g @angular/cli"
+- run "npm install"
+- run "ng init"
+- run "ng serve"
+
 # MyApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
