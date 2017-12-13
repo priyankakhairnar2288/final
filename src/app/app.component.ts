@@ -8,7 +8,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import * as _ from 'underscore';
-
+import * as $ from 'jquery';
 
 import { PagerService } from './_services/index';
 
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     // array of all items to be paged
     private allItems: any[];
 
-    // pager object
+    // pager objectwebpack:
     pager: any = {};
     private selectedList: any[];
     // paged items
@@ -51,7 +51,7 @@ isDesc = false;
             });
     }
 
-sort(property) {
+sort(property:any) {
     this.isDesc = !this.isDesc; // change the direction
     this.column = property;
     this.direction = this.isDesc ? 1 : -1;
@@ -69,11 +69,7 @@ sort(property) {
     }
 
     expandToggle(index: number) {
-        // if ($('#table tr.parent').eq(index).find('.salary-details').hasClass('hide')) {
-        //     $('#table tr.parent').eq(index).find('.expand').html('-');
-        // }else{
-        //      $('#table tr.parent').eq(index).find('.expand').html('+');
-        // }
+       
          $('*[data-index=' + index + ']').hasClass('hide') ?
            $('*[data-expand=' + index + ']').html('-') : $('*[data-expand=' + index + ']').html('+') ;
         $('*[data-index=' + index + ']').toggleClass('hide');
