@@ -1,0 +1,69 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+    <div class="container">
+        <div class="text-center">
+            <h1>Angular 2</h1>
+             
+            <!-- items being paged -->
+            <table class="table table-bordered table-striped" id="table">
+                <thead>
+                    <tr>
+                        <th class="text-center"><input type="checkbox" class="select-all"/> Select
+                        </th>
+                        <th class="text-center">ID</th>
+                        <th  (click)="sort('name')" class="pointer text-center">Name <span class="glyphicon glyphicon-sort"></span><br/>
+                       <input type="text" [(ngModel)]="userFilter" placeholder="name">
+                        </th>
+                        <th class="text-center">Email
+                        </th>
+                        <th (click)="sort('gender')" class="pointer text-center">Gender <span class="glyphicon glyphicon-sort"></span></th>
+                        <th class="text-center">Age</th>
+                        <th class="text-center">Salary</th>
+                        <th class="text-center">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="parent" *ngFor="let item of pagedItems | filter:userFilter | orderBy: {property: column, direction: direction};let i = index  ">
+                        <td> <span class="expand" (click)="expandToggle(i)" [attr.data-expand]="i">+</span><input type="checkbox"/></td>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.gender}}</td>
+                        <td>{{item.age}}</td>
+                        <td >{{item.salary[0].basic + item.salary[0].allowance - item.salary[0].deduction}}
+                            <div class="hide salary-details" [attr.data-index]="i">
+                               
+                                  
+                                        Salary = basic : {{item.salary[0].basic}} + Allowance {{item.salary[0].allowance}} - Deduction {{item.salary[0].deduction}} 
+                                   
+                                
+                            </div>
+                        </td>
+                        <td><button class="btn btn-danger" (click)="deleteItem(item)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- pager -->
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(1)">First</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                </li>
+                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                    <a (click)="setPage(page)">{{page}}</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.totalPages)">Last</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr />
+
+</div>
+
