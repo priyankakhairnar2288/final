@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+=======
+# Steps to start application
+- git clone all code
+- run "npm install -g @angular/cli"
+- run "npm install"
+- run "ng init"
+- run "ng serve"
+
+>>>>>>> db4b4fd0698ec575d276fba6dd83fba7a0d10382
 # MyApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
@@ -25,3 +35,15 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+<<<<<<< HEAD
+=======
+
+## Functionality included 
+- get data
+- sorting for name and gender
+- on expand show salary breakup details
+- delete functinality is written but due to access rights are not there to update the json so it does not allow json
+- But please go throgh   logic so that you can understand i know the concept.
+- search for "Name" column .
+- page is responsive using twiteer bootstrap
+>>>>>>> db4b4fd0698ec575d276fba6dd83fba7a0d10382
